@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "68990c42-3460-408a-a0c4-27f7291cb652",
+		"name": "Onyx API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1872009",
+		"_collection_link": "https://grey-trinity-439004.postman.co/workspace/dcaeb8f4-a761-46e9-95c2-7bf2c59a33b9/collection/1872009-68990c42-3460-408a-a0c4-27f7291cb652?action=share&source=collection_link&creator=1872009"
+	},
+	"item": [
+		{
+			"name": "JWT Token",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "Onyx123@",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "onyxuser@mailinator.com",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "read",
+							"type": "string"
+						},
+						{
+							"key": "tokenRequestParams",
+							"value": [
+								{
+									"key": "audience",
+									"value": "http://api.onyx.com",
+									"enabled": true,
+									"send_as": "request_header"
+								}
+							],
+							"type": "any"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "q1psLW2EWS58jvGvMOGOCg3CkmjKYpZvaFD0LYcv0hvtda94954TjCJ7uz2XRK9u",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "ipgc0ZFSmwiVjDiZ1aiq5iKSiQ7TF8vy",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://dev-52x28yi6qz7k4grd.us.auth0.com/oauth/token",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "OnyxApi",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "ipgc0ZFSmwiVjDiZ1aiq5iKSiQ7TF8vy",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "onyxuser@mailinator.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "Onyx123@",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "grant_type",
+						"value": "client_credentials",
+						"type": "text"
+					},
+					{
+						"key": "scope",
+						"value": "read",
+						"type": "text"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "q1psLW2EWS58jvGvMOGOCg3CkmjKYpZvaFD0LYcv0hvtda94954TjCJ7uz2XRK9u",
+						"type": "text"
+					},
+					{
+						"key": "audience",
+						"value": "http://api.onyx.com",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client_id\":\"ipgc0ZFSmwiVjDiZ1aiq5iKSiQ7TF8vy\",\r\n  \"client_secret\":\"q1psLW2EWS58jvGvMOGOCg3CkmjKYpZvaFD0LYcv0hvtda94954TjCJ7uz2XRK9u\",\r\n  \"audience\":\"http://api.onyx.com\",\r\n  \"grant_type\":\"client_credentials\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev-52x28yi6qz7k4grd.us.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"dev-52x28yi6qz7k4grd",
+						"us",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health Endpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5232/api/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5232",
+					"path": [
+						"api",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Producrts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Iks1dXpmN2dqX3pTb05iQzFZRTNKYyJ9.eyJpc3MiOiJodHRwczovL2Rldi01MngyOHlpNnF6N2s0Z3JkLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJpcGdjMFpGU213aVZqRGlaMWFpcTVpS1NpUTdURjh2eUBjbGllbnRzIiwiYXVkIjoiaHR0cDovL2FwaS5vbnl4LmNvbSIsImlhdCI6MTcwMjU3NDk4NCwiZXhwIjoxNzAyNjYxMzg0LCJhenAiOiJpcGdjMFpGU213aVZqRGlaMWFpcTVpS1NpUTdURjh2eSIsInNjb3BlIjoicmVhZCIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsInBlcm1pc3Npb25zIjpbInJlYWQiXX0.Phu8-ThghT2A-jheu4n0uIDB18vI-j3saNwYgDBTL9YSkew5wb83pDgMu3QVpLlrGMzQnWBB37a4h8J3cFFHKmgdJGnZgMTysurccYGMjQItQpnCD4BkAhLym0kxywEYocskvkuQDMfhqHO7-6TjiS4_u7Agdd9_wCkuEag8Us1BMMawmoR5FLkMHYlDuRFLqcdRN9jTDxYSLYXjRrhkru3wEIJTKQGctckHa6NDWPfINFy6KfkNVQDjqCGN99ctbNH-ckkFIGx0ZJ8aHpzRXkVcRdPRTEPqp2mknDJFZ6BrUKcMgf-yBrj_yu4qkhSb24YWrmPSKphH7uHo87eUZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5232/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5232",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products By Color",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Iks1dXpmN2dqX3pTb05iQzFZRTNKYyJ9.eyJpc3MiOiJodHRwczovL2Rldi01MngyOHlpNnF6N2s0Z3JkLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJpcGdjMFpGU213aVZqRGlaMWFpcTVpS1NpUTdURjh2eUBjbGllbnRzIiwiYXVkIjoiaHR0cDovL2FwaS5vbnl4LmNvbSIsImlhdCI6MTcwMjU3NDk4NCwiZXhwIjoxNzAyNjYxMzg0LCJhenAiOiJpcGdjMFpGU213aVZqRGlaMWFpcTVpS1NpUTdURjh2eSIsInNjb3BlIjoicmVhZCIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsInBlcm1pc3Npb25zIjpbInJlYWQiXX0.Phu8-ThghT2A-jheu4n0uIDB18vI-j3saNwYgDBTL9YSkew5wb83pDgMu3QVpLlrGMzQnWBB37a4h8J3cFFHKmgdJGnZgMTysurccYGMjQItQpnCD4BkAhLym0kxywEYocskvkuQDMfhqHO7-6TjiS4_u7Agdd9_wCkuEag8Us1BMMawmoR5FLkMHYlDuRFLqcdRN9jTDxYSLYXjRrhkru3wEIJTKQGctckHa6NDWPfINFy6KfkNVQDjqCGN99ctbNH-ckkFIGx0ZJ8aHpzRXkVcRdPRTEPqp2mknDJFZ6BrUKcMgf-yBrj_yu4qkhSb24YWrmPSKphH7uHo87eUZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5232/api/products/red",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5232",
+					"path": [
+						"api",
+						"products",
+						"red"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

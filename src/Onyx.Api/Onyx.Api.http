@@ -1,0 +1,35 @@
+@Onyx.Api_HostAddress = http://localhost:5232
+
+# Test 0. Get Token for Authorization
+POST https://dev-52x28yi6qz7k4grd.us.auth0.com/oauth/token/
+Content-Type: application/json
+
+{
+  "client_id":"ipgc0ZFSmwiVjDiZ1aiq5iKSiQ7TF8vy",
+  "client_secret":"q1psLW2EWS58jvGvMOGOCg3CkmjKYpZvaFD0LYcv0hvtda94954TjCJ7uz2XRK9u",
+  "audience":"http://api.onyx.com",
+  "grant_type":"client_credentials"
+}
+
+
+###
+
+# Test 1: Health Check Endpoiont
+GET {{Onyx.Api_HostAddress}}/api/Health
+Accept: application/json
+
+
+###
+# Test 2: Gett All Products
+GET {{Onyx.Api_HostAddress}}/api/products
+Accept: application/json
+
+###
+
+
+# Test 3: Get All Products by color
+GET {{Onyx.Api_HostAddress}}/api/Products/white
+Accept: application/json
+
+###
+
